@@ -1,4 +1,5 @@
 #!/bin/sh
+### by Dhaval Bhesaniya
 # Function to log the process
 log_process() {
     userName=$(/usr/bin/stat -f%Su /dev/console)
