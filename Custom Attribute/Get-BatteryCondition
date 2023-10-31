@@ -1,0 +1,3 @@
+#!/bin/bash
+batteryCondition=$(system_profiler SPPowerDataType | grep "Condition:" | sed 's/.*Condition: //')
+echo $batteryCondition

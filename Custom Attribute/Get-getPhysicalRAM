@@ -1,0 +1,6 @@
+#!/bin/zsh
+
+RAMbytes=$(sysctl hw.memsize | awk '{print $2}')
+typeset -i RAMGB
+(( RAMGB = $RAMbytes / (1024 * 1024 * 1024) ))
+echo $RAMGB "GB"

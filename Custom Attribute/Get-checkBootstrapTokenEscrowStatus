@@ -1,0 +1,8 @@
+#!/bin/zsh
+
+result=$(sudo profiles status -type bootstraptoken)
+if [[ "$result" == *"Bootstrap Token escrowed to server: YES"* ]]; then
+    echo "Yes"
+else
+    echo "No"
+fi

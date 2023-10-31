@@ -1,0 +1,7 @@
+#!/bin/bash
+processor=$(/usr/sbin/sysctl -n machdep.cpu.brand_string)
+
+RAMbytes=$(sysctl hw.memsize | awk '{print $2}')
+typeset -i RAMGB
+(( RAMGB = $RAMbytes / (1024 * 1024 * 1024) ))
+echo $processor $RAMGB "GB"

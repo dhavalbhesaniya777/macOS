@@ -1,0 +1,27 @@
+#!/bin/bash
+FDE_PROFILE=$(profiles list | grep -e filevault.escrow -e FDERecoveryKeyEscrow)
+PRK="/var/db/FileVaultPRK.dat"
+
+function FDE_Escrow_Status() {
+    #   $FDE_STATUS: The status of FileVault
+    #   $FDE_PROFILE: FDE profile status
+    #   $PRK: The path to the FileVaultPR
+    # If the escrow plist exists, check if the escrow location is set to Intune
+    if [ "$FDE_PROFILE" ]; then
+        # If the key has been escrowed, exit
+        if [ -a "$PRK" ]; then
+            echo "Key has been escrowed"
+        # If the key has not been escrowed, set GenerateNewKey to true
+        else
+            echo "Key has not been escrowed"
+        fi
+    # If the escrow plist does not exist, do nothing
+    else
+        echo "No File Vault profile has been applied"
+    fi
+}
+
+# Run remediation
+FDE_Escrow_Status
+
+exit 0
