@@ -1,4 +1,8 @@
 #!/bin/zsh
+### by Dhaval Bhesaniya
+#<<< Make sure to replace source links/ blob storage links wherever it needs in this script.
+#<<< I have used Microsoft Azure BlobStorage in this case, but you can use your own, or direct source links.
+
 userName=$(/usr/bin/stat -f%Su /dev/console)            #<<< Getting the username
 OS_Version=$(sw_vers -productVersion)                   #<<< Getting the macOS version number
 OS_Arc=$(uname -m)                                      #<<< Getting the processor type
@@ -60,7 +64,7 @@ function install_vlc() {
 }
 function install_AvidComposer() {
   dmgFile="Media_Composer_x_Mac.dmg"
-  downloadURL="https://endpointvdistorage2.blob.core.windows.net/eut-intune-public/Macintosh/Media_Field_Ops/1_Media_Composer_x_Mac.dmg"
+  downloadURL="InsertLinkforSource/blobStorage"
   curl --silent --output "$dmgFile" "${downloadURL}"
   logresult "Downloaded $dmgFile." "Failed to download $dmgFile."
   appVolume=$( hdiutil attach -nobrowse "$dmgFile" | grep /Volumes | sed -e 's/^.*\/Volumes\///g' )
@@ -71,7 +75,7 @@ function install_AvidComposer() {
 }
 function install_AvidLegacyComp() {
   zipFile="MediaComposerLegacyComponents.zip"
-  downloadURL="https://endpointvdistorage2.blob.core.windows.net/eut-intune-public/Macintosh/Media_Field_Ops/1_1_MediaComposerLegacyComponents.zip"
+  downloadURL="InsertLinkforSource/blobStorage"
   curl --silent --output "$zipFile" "${downloadURL}"
   logresult "Downloaded zip." "Failed to download zip."
   unzip "${zipFile}"
@@ -109,7 +113,7 @@ function install_CanonXF() {
   appName="XUMInstaller.app"
   zipFile="xum.dmg.gz"
   downloadFileName="xum.dmg"
-  downloadURL="https://endpointvdistorage2.blob.core.windows.net/eut-intune-public/Macintosh/Media_Field_Ops/xum.dmg.gz"
+  downloadURL="InsertLinkforSource/blobStorage"
   sudo curl -L -o "$zipFile" "${downloadURL}"
   logresult "Downloaded $downloadFileName." "Failed to download $downloadFileName."
   sudo gunzip "${zipFile}" | tar xvf -
@@ -164,7 +168,7 @@ JSON
 }
 function install_AsperaConnect() {
   pkgFile="10_IBMAsperaConnectInstallerSystemWide.pkg"
-  downloadURL="https://endpointvdistorage2.blob.core.windows.net/eut-intune-public/Macintosh/Media_Field_Ops/10_IBMAsperaConnectInstallerSystemWide.pkg"
+  downloadURL="InsertLinkforSource/blobStorage"
   curl --silent --output "$pkgFile" "${downloadURL}"
   logresult "Downloaded $pkgFile." "Failed to download $pkgFile."
   sudo installer -pkg "$pkgFile" -target /
@@ -174,7 +178,7 @@ function install_AsperaConnect() {
 function install_FileZilla() {
   appName="FileZilla.app"
   zipFile="FileZilla_3.65.0_macosx-x86.app.tar.bz2"
-  downloadURL="https://endpointvdistorage2.blob.core.windows.net/eut-intune-public/Macintosh/Media_Field_Ops/FileZilla_3.65.0_macosx-x86.app.tar.bz2"
+  downloadURL="InsertLinkforSource/blobStorage"
   sudo curl -L -o "$zipFile" "${downloadURL}"
   sudo tar -xvf "$zipFile"
   logresult "Downloaded $zipFile. & Extracted" "Failed to download $zipFile."
@@ -184,7 +188,7 @@ function install_FileZilla() {
 }
 function install_Sony_Device_Dvr() {
   pkgFile="3_SxSDeviceDriver5.0.0.20.pkg"
-  downloadURL="https://endpointvdistorage2.blob.core.windows.net/eut-intune-public/Macintosh/Media_Field_Ops/3_SxSDeviceDriver5.0.0.20.pkg"
+  downloadURL="InsertLinkforSource/blobStorage"
   sudo curl --silent --output "$pkgFile" "${downloadURL}"
   logresult "Downloaded $pkgFile. & Extracted" "Failed to download $pkgFile."  
   sudo installer -pkg "$pkgFile" -target /
@@ -193,7 +197,7 @@ function install_Sony_Device_Dvr() {
 }
 function install_Sony_Fam_Dvr() {
   pkgFile="4_FAM_Installer.pkg"
-  downloadURL="https://endpointvdistorage2.blob.core.windows.net/eut-intune-public/Macintosh/Media_Field_Ops/4_FAM_Installer.pkg"
+  downloadURL="InsertLinkforSource/blobStorage"
   sudo curl --silent --output "$pkgFile" "${downloadURL}"
   logresult "Downloaded $pkgFile. & Extracted" "Failed to download $pkgFile."  
   sudo installer -pkg "$pkgFile" -target /
@@ -202,7 +206,7 @@ function install_Sony_Fam_Dvr() {
 }
 function install_Sony_UDF_Dvr() {
   pkgFile="2_SxS_UDF_Driver_Software.pkg"
-  downloadURL="https://endpointvdistorage2.blob.core.windows.net/eut-intune-public/Macintosh/Media_Field_Ops/2_SxS_UDF_Driver_Software.pkg"
+  downloadURL="InsertLinkforSource/blobStorage"
   sudo curl --silent --output "$pkgFile" "${downloadURL}"
   logresult "Downloaded $pkgFile. & Extracted" "Failed to download $pkgFile."  
   sudo installer -pkg "$pkgFile" -target /
@@ -210,8 +214,8 @@ function install_Sony_UDF_Dvr() {
   wait
 }
 function install_Bomgar() {
-  dmgFile="bomgar-scc-w0eec305xi57zifj16hdgiideyfyzh5171dieiwc40hc90.dmg"
-  downloadURL="https://endpointvdistorage2.blob.core.windows.net/eut-intune-public/Macintosh/Media_Field_Ops/bomgar-scc-w0eec305xi57zifj16hdgiideyfyzh5171dieiwc40hc90.dmg"
+  dmgFile="bomgar-scc-w0eec305xi57zif....dmg"
+  downloadURL="InsertLinkforSource/blobStorage"
   curl --silent --output "$dmgFile" "${downloadURL}"
   logresult "Downloaded $dmgFile." "Failed to download $dmgFile."
   appVolume=$( hdiutil attach -nobrowse "$dmgFile" | grep /Volumes | sed -e 's/^.*\/Volumes\///g' )
